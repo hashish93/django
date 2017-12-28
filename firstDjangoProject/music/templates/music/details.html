@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>details</title>
+</head>
+<body>
+    <a href="/music" style="background: #607D8B;display: inline-block;padding: 15px;color: #fff !important;">
+        back to music</a>
+    <div>album song details for id : {{ album.pk }}</div>
+    <div>
+        album logo
+        <img src="{{ album.album_logo }}" style="width: 300px;display: block">
+    </div>
+    <div>
+        album title :
+        <span>{{album.album_title}}</span>
+    </div>
+    <div>
+        artist
+        <span>{{album.artist}}</span>
+    </div>
+    
+
+    {% if album.song_set.all %}
+        <div>
+            <h2>
+            songs :
+            </h2>
+            {% for song in album.song_set.all %}
+            <div>{{ song }}</div>
+            {% endfor %}
+        </div>
+    {% endif %}
+
+</body>
+</html>
